@@ -1,0 +1,198 @@
+
+/* header part start */
+.header{
+    padding: 15px 20px;
+    background-color: #1c2b4b;
+    position: relative;
+}
+.nav-box{
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.brand-logo{
+    font-size: 31px;
+    font-weight: 400;
+    color: #fff;
+}
+#nav-mobile{
+    display: flex;
+    gap: 30px;
+}
+.close-btn,
+.ham-menu{
+    display: none;
+}
+#nav-mobile li a{
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    transition: .3s;
+}
+#nav-mobile li a:hover{
+    color: #00AD45;
+}
+/* header part end */
+
+/* search part start */
+.btn:hover, .btn-large:hover, .btn-small:hover,
+.btn, .btn-large, .btn-small{
+    background-color: #00AD45 !important;
+}
+input:focus{
+    border-color: #00AD45 !important;
+}
+.btn.red{
+    background-color: rgb(197, 29, 29) !important;
+}
+
+/* search part end */
+
+/* features part start */
+.material-icons{
+    font-size: 50px;
+    color: #1c2b4b;
+}
+#features .icon-block{
+    border: 1px solid #d3d3d3;
+    border-radius: 7px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    text-align: center;
+    min-height: 292px;
+    
+}
+
+/* features part end */
+
+/* slider part start */
+.carousel .carousel-item{
+    visibility: visible !important;
+    width: 100%;
+    position: relative;
+}
+.testimonials{
+    background-color: #F9F9F9;
+}
+.carousel{
+    height: auto;
+}
+.testimonials .carousel-item h5{
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 400;
+}
+.carousel-indicators{
+    bottom: -20px;
+}
+.carousel-indicators [data-bs-target]{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #1c2b4b;
+}
+/* slider part end */
+
+/* faq part start */
+.faq-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .faq-questions {
+    background-color: #f1f1f1;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .faq-questions i{
+    font-size: 40px;
+  }
+
+  
+
+  
+
+  .faq-answer {
+    padding: 0px 10px;
+   
+    transition: 0.3s ease-out;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .faq-answer.show-answer {
+    padding: 10px;
+    height: auto; 
+    
+  }
+/* faq part end */
+
+/* footer part start */
+.page-footer.blue-grey.darken-3{
+    background-color: #1c2b4b !important;
+}
+
+/* footer part end */
+
+/* buses part start */
+#buses .card-image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+#buses .card{
+    min-height: 395px;
+}
+#searchPage .card-image img{
+    width: 100%;
+    
+}
+/* buses part end */
+
+/* search bus part start */
+
+/*scrollbar start*/
+#results::-webkit-scrollbar{
+	height: 15px;
+	
+}
+#results::-webkit-scrollbar-track{
+	background-color: #F9F9F9;
+    border-radius: 10px;
+
+}
+#results::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	background: linear-gradient(0deg, rgba(47,48,49,1) 20%, rgba(5,250,184,1) 80%);
+    
+}
+/*scrollbar end*/
+#results{
+    position: relative;
+    display: flex;
+    gap: 15px;
+    overflow-x: scroll;
+    padding-bottom: 20px;
+}
+#results h5{
+    position: absolute;
+    left: 0;
+    top: 0px;
+}
+#results .card{
+    min-width: 350px;
+}
+#results .card-image img{
+    height: 260px;
+    object-fit: cover;
+}
+/* search bus part end */
+

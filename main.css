@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #444;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.navbar-fixed {
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+}
+
+.page-footer {
+    background-color: #37474F;
+    color: #fff;
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.card-panel {
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.center-align h4, .center-align h5 {
+    margin-bottom: 1rem;
+}
+
+.attraction-image, .bus-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.features, .testimonials, .contact, .faq, .buses {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.features h4, .testimonials h4, .contact h4, .faq h4, .buses h4 {
+    margin-bottom: 2rem;
+}
+
+.features .icon-block {
+    padding: 1rem;
+}
+
+.contact form .input-field {
+    margin-bottom: 1rem;
+}
+
+.suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+}
+
+.suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+.hidden {
+    display: none;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #receipt, #receipt * {
+        visibility: visible;
+    }
+    #receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 992px) {
+    .brand-logo {
+        font-size: 1.5rem;
+    }
+    .features, .testimonials, .contact, .faq, .buses, .section {
+        padding: 2rem 0;
+    }
+    .card-panel {
+        padding: 1rem;
+    }
+}

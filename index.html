@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking Ethiopia</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="css/my-style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- header part start -->
+     <header class="header">
+        <div class="ham-menu" id="ham-menu">
+            <span></span>
+        </div>
+        <div class="container-fluid">
+            <div class="row mb-0">
+                <div class="col-12 p-0">
+                    <div class="nav-box">
+                        <a href="#" class="brand-logo">Bus Ticket Booking Ethiopia</a>
+                    <ul id="nav-mobile" class="mb-0">
+                        <div class="close-btn" id="close-btn">&times;</div>
+                        <li><a href="#" onclick="showPage('searchPage')">Home</a></li>
+                        <li><a href="#" onclick="showPage('calendarPage')">Book Ticket</a></li>
+                        <li><a href="#" onclick="showPage('confirmPage')">Confirm Trip</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#buses">Buses</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#!" id="loginBtn">Log in</a></li>
+                    </ul>
+                    
+                    </div>
+                </div>
+            </div>
+
+            
+
+            
+
+        </div>
+     </header>
+    <!-- header part end -->
+
+    <main>
+        <div id="searchPage" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <h4 class="center-align">Where do you want to go?</h4>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="departure" type="text" class="autocomplete">
+                        <label for="departure">Departure</label>
+                        
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="destination" type="text" class="autocomplete" oninput="showAttractions()">
+                        <label for="destination">Destination</label>
+                        
+                    </div>
+                </div>
+                <div id="attractions" class="section hidden">
+                    <h5>Tourist Attractions</h5>
+                    <ul id="attractionsList"></ul>
+                </div>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" onclick="searchBuses()">Search Buses</button>
+                </div>
+                <div id="results" class="section"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="calendarPage" class="section hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="center-align">Select Date and Number of People</h4>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="date" type="text" class="datepicker">
+                        <label for="date">Date</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select id="people" onchange="generatePassengerFields()">
+                            <option value="" disabled selected>Choose number of people</option>
+                        </select>
+                        <label for="people">Number of People</label>
+                    </div>
+                </div>
+                <div id="passengerFields" class="section"></div>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" onclick="confirmTrip()">Confirm Trip</button>
+                    <button class="btn red waves-effect waves-light" onclick="cancelBooking()">Cancel</button>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirmPage" class="section hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="center-align">Confirm Your Trip</h4>
+                <div class="card-panel">
+                    <div class="section">
+                        <h5>Service: <span id="serviceName"></span></h5>
+                        <p>Price: $<span id="servicePrice"></span></p>
+                        <p>Details: <span id="serviceDetails"></span></p>
+                        <p>Departure: <span id="tripDeparture"></span></p>
+                        <p>Destination: <span id="tripDestination"></span></p>
+                        <p>Date: <span id="tripDate"></span></p>
+                        <p>Number of People: <span id="tripPeople"></span></p>
+                        <p>Confirmation Number: <span id="confirmationNumber"></span></p>
+                        <div id="passengerDetails"></div>
+                    </div>
+                    <div class="center-align">
+                        <button class="btn waves-effect waves-light" onclick="showPaymentDetails()">Confirm and Pay</button>
+                        <button class="btn red waves-effect waves-light" onclick="cancelBooking()">Cancel</button>
+                    </div>
+                </div>
+                <p class="center-align red-text">Note: Once confirmed, tickets are non-refundable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="paymentPage" class="section hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="center-align">Payment Details</h4>
+                <div class="card-panel">
+                    <div class="section">
+                        <h5>Bank Account Details</h5>
+                        <p>Commercial Bank of Ethiopia: 100200300400</p>
+                        <p>Abyssinia Bank: 200300400500</p>
+                        <p>Dashen Bank: 300400500600</p>
+                    </div>
+                    <div class="input-field">
+                        <input id="paymentConfirmation" type="text">
+                        <label for="paymentConfirmation">Payment Confirmation Number</label>
+                    </div>
+                    <div class="center-align">
+                        <button class="btn waves-effect waves-light" onclick="confirmPayment()">Submit Payment</button>
+                        <button class="btn red waves-effect waves-light" onclick="cancelBooking()">Cancel</button>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="receiptPage" class="section hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="center-align">Booking Confirmation</h4>
+                <div class="card-panel">
+                    <div id="bookingConfirmation" class="section">
+                        <h5>Thank you for your payment!</h5>
+                        <p>Your booking confirmation number is: <span id="confirmationCodeReceipt"></span></p>
+                        <div id="receipt">
+                            <h4>Bus Ticket Booking Ethiopia</h4>
+                            <h5>Receipt</h5>
+                            <p>Service: <span id="serviceNameReceipt"></span></p>
+                            <p>Price: $<span id="servicePriceReceipt"></span></p>
+                            <p>Details: <span id="serviceDetailsReceipt"></span></p>
+                            <p>Departure: <span id="tripDepartureReceipt"></span></p>
+                            <p>Destination: <span id="tripDestinationReceipt"></span></p>
+                            <p>Date: <span id="tripDateReceipt"></span></p>
+                            <p>Number of People: <span id="tripPeopleReceipt"></span></p>
+                            <p>Confirmation Number: <span id="confirmationNumberReceipt"></span></p>
+                            <div id="passengerDetailsReceipt"></div>
+                            <h6>Disclosures</h6>
+                            <p>Please note that tickets are non-refundable once confirmed.</p>
+                            <h6>Terms of Agreement</h6>
+                            <p>By booking this ticket, you agree to our terms and conditions, including the non-refundable policy.</p>
+                        </div>
+                        <div class="center-align">
+                            <button class="btn waves-effect waves-light" onclick="printReceipt()">Print Receipt</button>
+                            <button class="btn waves-effect waves-light" onclick="saveReceipt()">Save Receipt</button>
+                            <button class="btn red waves-effect waves-light" onclick="cancelBooking()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div id="features" class="features section scrollspy">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="center-align">Features</h4>
+                        <div class="col s12 m4">
+                            <div class="icon-block">
+                                <h2 class="center brown-text"><i class="material-icons">directions_bus</i></h2>
+                                <h5 class="center">Convenient Booking</h5>
+                                <p class="light">Book your bus tickets with ease and convenience, with a user-friendly interface that guides you through each step.</p>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="icon-block">
+                                <h2 class="center brown-text"><i class="material-icons">verified_user</i></h2>
+                                <h5 class="center">Safe and Secure</h5>
+                                <p class="light">Your personal information is safe with us. We use advanced security measures to protect your data and ensure a secure booking experience.</p>
+                            </div>
+                        </div>
+                        <div class="col s12 m4">
+                            <div class="icon-block">
+                                <h2 class="center brown-text"><i class="material-icons">stars</i></h2>
+                                <h5 class="center">Best Services</h5>
+                                <p class="light">Enjoy the best bus services in Ethiopia with comfortable seating, air conditioning, and other amenities to make your journey enjoyable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buses Section -->
+        <div id="buses" class="buses section scrollspy">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="center-align">Our Buses</h4>
+                    <div class="col s12 m4">
+                        
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/bus-1.jpg" alt="Selam Bus" class="bus-image">
+                                <span class="card-title">Selam Bus</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Comfortable seats, WiFi, Air conditioning</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/bus-2.jpg" alt="Sky Bus" class="bus-image">
+                                <span class="card-title">Sky Bus</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Air conditioning, Snacks, Entertainment</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/bus-3.jpg" alt="Golden Bus" class="bus-image">
+                                <span class="card-title">Golden Bus</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Luxury seats, Entertainment, Refreshments</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div id="testimonials" class="testimonials section scrollspy">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="center-align">What Our Customers Say</h4>
+
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item text-center active">
+                          <h5 class="mb-4">"Booking tickets with Bus Ticket Booking Ethiopia was so easy and convenient. I will definitely use their services again!"</h5>
+                          <p>- John Doe</p>
+                        </div>
+  
+                        <div class="carousel-item text-center">
+                          <h5 class="mb-4">"Great service and very user-friendly website. I found and booked my bus tickets without any hassle."</h5>
+                          <p>- Jane Smith</p>
+                        </div>
+  
+                        <div class="carousel-item text-center">
+                          <h5 class="mb-4">"The best bus booking experience I've had. Safe, secure, and very reliable."</h5>
+                          <p>- Mohammed Ali</p>
+                        </div>
+                        
+                        
+                      </div>
+                    
+                  </div>
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="contact section scrollspy">
+            <div class="container">
+                
+                <div class="row">
+                    <form class="col-12">
+                        <div class="row">
+                            <h4 class="center-align">Contact Us</h4>
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="message" class="materialize-textarea"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="center-align">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        
+        <section class="faqs py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="text-center mb-4">Frequently Asked Questions</h4>
+                        <div class="faq-box">
+                            <div class="faq-item">
+                                <div class="faq-questions" onclick="toggleFaq(1)">
+                                    <i class="material-icons">question_answer</i> <span>How do I book a ticket?</span>
+                                </div>
+                                <div class="faq-answer" id="faqs1">Simply enter your departure and destination cities, select the date, and choose the number of passengers. Follow the prompts to complete your booking.</div>
+                              </div>
+            
+                              <div class="faq-item">
+                                <div class="faq-questions" onclick="toggleFaq(2)">
+                                    <i class="material-icons">question_answer</i> <span>Is my payment secure?</span>
+                                </div>
+                                <div class="faq-answer" id="faqs2">Yes, we use advanced security measures to protect your payment information and ensure a secure transaction.</div>
+                              </div>
+                            
+                              <div class="faq-item">
+                                <div class="faq-questions" onclick="toggleFaq(3)">
+                                    <i class="material-icons">question_answer</i> <span>Can I cancel my booking?</span>
+                                </div>
+                                <div class="faq-answer" id="faqs3">Please refer to our cancellation policy for details on how to cancel your booking and any applicable fees.</div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer blue-grey darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Bus Ticket Booking Ethiopia</h5>
+                    <p class="grey-text text-lighten-4">Your one-stop solution for booking bus tickets and exploring tourist attractions in Ethiopia.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2024 Bus Ticket Booking Ethiopia
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript at end of body for optimized loading -->
+     <script src="bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+    <script src="/main.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

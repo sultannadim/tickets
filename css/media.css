@@ -1,0 +1,280 @@
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) { 
+    .container{
+        padding: 0 30px;
+    }
+    /* header part start */
+    .main-header{
+        padding-left: 20px;
+    }
+    .main-header-box{
+        grid-template-columns: 1fr 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        
+    }
+    .logo{
+        width: 180px;
+    }
+    /* header part end */
+
+    /* slider part start */
+    .item {
+        
+    
+        &:nth-child(3) { left: 50%; }
+        &:nth-child(4) { left: calc(50% + 60px); }
+        &:nth-child(5) { left: calc(50% + 120px); }
+        &:nth-child(6) { left: calc(50% + 180px); opacity: 0; }
+        
+      }
+
+      .item{
+        width: 50px;
+        height: 40px;
+        top: 80%;
+        border-radius: 5px;
+        transform: translateX(-150%);
+      }
+
+      .slider-content h2,
+      .top-heading h2{
+        font-size: 30px;
+    }
+    .slider-content h3{
+        font-size: 17px;
+    }
+    .slider-content{
+        left: 25px;
+    }
+    /* slider part end */
+
+    /* banner card part start */
+    .card__container{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .card__data h3{
+        font-size: 25px;
+    }
+    .card__data h4{
+        font-size: 15px;
+    }
+    /* banner card part end */
+
+    /* our service part start */
+    .service-box{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .service-icon img{
+        width: 90px;
+    }
+    .top-heading h2{
+        -webkit-text-stroke-width: 1px;
+    }
+    /* our service part erd */
+
+    /* footer part start */
+    .footer-box{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .footer-content h3{
+        font-size: 17px;
+    }
+    /* footer part end */
+
+    /* ================About page start================= */
+
+    /* page banner start */
+    .page-banner-content h3{
+        font-size: 33px;
+    }
+    .page-banner-content h4{
+        font-size: 20px;
+        line-height: 28px;
+    }
+    /* page banner end */
+
+    /* about content part start */
+    .single-about-service{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .about-service-img{
+        width: 120px;
+        margin: 0 auto;
+    }
+    .about-service-text{
+        text-align: center;
+    }
+    /* about content part end */
+
+/* ================About page end================= */
+
+/* ================Contact page start================= */
+.form-box{
+    grid-template-columns: repeat(1,1fr);
+}
+.form-right{
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 17px;
+}
+.form-left,
+.form-right{
+    padding: 30px 20px;
+}
+/* ================Contact page end================= */
+ }
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    /* slider part start */
+    .slider-content h2,
+    .top-heading h2{
+        font-size: 40px;
+    }
+    .slider-content h3{
+        font-size: 20px;
+    }
+    /* slider part end */
+
+    /* banner card part start */
+    .card__container{
+        grid-template-columns: repeat(1,1fr);
+    }
+    /* banner card part end */
+
+    /* our service part start */
+    .service-box{
+        grid-template-columns: repeat(1,1fr);
+    }
+    /* our service part erd */
+
+    /* footer part start */
+    .footer-box{
+        grid-template-columns: repeat(2,1fr);
+    }
+    /* footer part end */
+
+    /* ================About page start================= */
+/* ================About page end================= */
+
+/* ================Contact page start================= */
+.form-box{
+    grid-template-columns: repeat(1,1fr);
+}
+.form-right{
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 17px;
+}
+/* ================Contact page end================= */
+ }
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    /* banner card part start */
+    .card__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    /* banner card part end */
+
+    /* our service part start */
+    .service-box{
+        grid-template-columns: repeat(2,1fr);
+    }
+    /* our service part erd */
+
+    /* footer part start */
+    .footer-box{
+        grid-template-columns: repeat(2,1fr);
+    }
+    /* footer part end */
+
+    /* ================About page start================= */
+/* ================About page end================= */
+
+/* ================Contact page start================= */
+/* ================Contact page end================= */
+ }
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    /* header part start */
+    .top-header-box{
+        grid-template-columns: 1fr 250px;
+    }
+    /* header part end */
+
+    /* banner card part start */
+    .card__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    /* banner card part end */
+
+    /* ================About page start================= */
+/* ================About page end================= */
+
+/* ================Contact page start================= */
+/* ================Contact page end================= */
+ }
+
+
+
+/*Extra large devices (Extra large desktops, 1200px and up)*/
+@media (min-width: 1200px) and (max-width: 1399.98px) { 
+    /* ================About page start================= */
+/* ================About page end================= */
+
+/* ================Contact page start================= */
+/* ================Contact page end================= */
+ }
+
+/*Extra large devices (Extra Extra large desktops, 1400px and up)*/
+@media (min-width: 1400px) { 
+    /* ================About page start================= */
+/* ================About page end================= */
+
+/* ================Contact page start================= */
+/* ================Contact page end================= */
+ }
+
+
+
+@media (max-width: 991.98px) { 
+    .main-header-right{
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        background-color: #fff;
+        top: 0;
+        right: -110%;
+        z-index: 200;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+        padding: 20px;
+        transition: .4s all linear;
+    }
+    .main-header-right.active{
+        right: 0;
+    }
+    .main-header-right ul{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+
+    }
+    .main-header-right ul li{
+        border-bottom: 1px solid #d3d3d3;
+    }
+    .close{
+        font-size: 35px;
+        color: #243687;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+
+    
+  }
